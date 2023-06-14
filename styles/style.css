@@ -1,0 +1,30 @@
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    text-align: center;
+    flex-wrap: wrap;
+
+    
+}
+.program-header{
+    display: flex;
+    justify-content: start;
+    width: 80%;
+    margin:  4rem auto;
+    text-align: center;
+ 
+}
+
+.footer{
+   text-align: center;
+}
