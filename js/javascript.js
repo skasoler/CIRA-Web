@@ -40,6 +40,26 @@ let MDWDListOfIntakes = [
   "September 2023",
 ];
 
+
+let MDWDtoday = new Date();
+let MDWDactiveIntakes='';
+
+if(new Date(2022, 8, 12) <= MDWDtoday && MDWDtoday <= new Date(2023, 7, 31) && new Date(2023, 0, 3) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16)){
+  MDWDactiveIntakes= `${MDWDListOfIntakes[5]} and ${MDWDListOfIntakes[6]} ` ; 
+}else if(new Date(2023, 8,1) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16)){
+  MDWDactiveIntakes= `${MDWDListOfIntakes[6]}`;
+}else if(new Date(2023, 0, 3) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16) && new Date(2023,8,12) <=MDWDtoday && MDWDtoday<= new Date(2024,7,26)){
+  MDWDactiveIntakes= `${MDWDListOfIntakes[6]} and ${MDWDListOfIntakes[7]} `;
+}else if(new Date(2023, 11,17) <= MDWDtoday && MDWDtoday <= new Date(2024, 7, 26)){
+  MDWDactiveIntakes= `${MDWDListOfIntakes[7]}`
+}else{
+  MDWDactiveIntakes='error'
+};
+
+
+document.getElementById("MDWDintakeOngoing").innerHTML=`Intakes ongoing: ${MDWDactiveIntakes} `;
+
+
 //Specific student, course list and function for Intake 2020
 
 const MDWDstudentsIntake2020 = [
@@ -591,24 +611,24 @@ const studentsMDWDIntakeSeptember2022 = [
 ];
 
 const coursesMDWDIntakeSeptember2022 = [
-  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b><br>`,
-  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b><br>`,
-  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b>`,
+  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>September 12th,2022 to November 4th, 2022</b>. <br>`,
+  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>September 12th,2022 to October 17th, 2022</b>. <br>`,
+  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>October 21st,2022 to December 12th, 2022</b>. <br>`,
+  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>November 7th,2022 to December 12th, 2022</b>. <br>`,
+  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>January 4th,2023 to January 13th, 2023</b>. <br>`,
+  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>January 16th,2023 to February 6th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>February 8th,2023 to February 27th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>February 27th,2023 to March 10th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>March 10th,2023 to March 27th, 2023</b>. <br>`,
+  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 29th,2023 to April 24th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>April 26th,2023 to May 5th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>May 8th,2023 to May 17th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b> from <b>May 19th,2023 to May 31th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>June 2nd,2023 to June 23th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b>from <b>June 26th,2023 to July 17th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>July 19th,2023 to July 28th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>July 31st,2023 to August 23rd, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>August 22th,2023 to August 31st, 2023</b>.`,
 ];
 
 function MDWDIntakeSeptember2022() {
@@ -616,39 +636,39 @@ function MDWDIntakeSeptember2022() {
   let today = new Date();
 
   if (new Date(2022, 8, 12) <= today && today <= new Date(2022, 9, 20)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2022, 9, 21) <= today && today <= new Date(2022, 10, 4)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2022, 10, 5) <= today && today <= new Date(2023, 0, 3)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively. <br><br>`;
   } else if (new Date(2022, 0, 4) <= today && today <= new Date(2023, 0, 15)) {
-    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
   } else if (new Date(2023, 0, 16) <= today && today <= new Date(2023, 1, 7)) {
-    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 1, 8) <= today && today <= new Date(2023, 1, 27)) {
-    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 1, 27) <= today && today <= new Date(2023, 2, 10)) {
-    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
   } else if (new Date(2023, 3, 10) <= today && today <= new Date(2023, 3, 28)) {
-    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
   } else if (new Date(2023, 2, 29) <= today && today <= new Date(2023, 3, 25)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 3, 26) <= today && today <= new Date(2023, 4, 5)) {
-    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 4, 6) <= today && today <= new Date(2023, 4, 17)) {
-    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 4, 18) <= today && today <= new Date(2023, 4, 31)) {
-    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed by <b>${MDWDListOfTeachers[3]}</b>. <br><br>`;
   } else if (new Date(2023, 5, 1) <= today && today <= new Date(2023, 5, 23)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 5, 24) <= today && today <= new Date(2023, 6, 18)) {
-    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed by <b>${MDWDListOfTeachers[2]}</b>. <br><br>`;
   } else if (new Date(2023, 6, 19) <= today && today <= new Date(2023, 6, 28)) {
-    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 6, 29) <= today && today <= new Date(2023, 7, 23)) {
-    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 7, 22) <= today && today <= new Date(2023, 7, 31)) {
-    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else {
     text += "<b>This Intake has finished.</b> <br><br>";
   }
@@ -782,24 +802,24 @@ const studentsMDWDIntakeJanuary2023 = [
 ];
 
 const coursesMDWDIntakeJanuary2023 = [
-  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b><br>`,
-  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b><br>`,
-  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b>`,
+  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>January 3rd,2023 to February 14th, 2023</b>. <br>`,
+  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>January 3rd,2023 to February 2nd, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>February 7th,2023 to March 28th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>February 16th,2023 to March 21st, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>March 24th,2023 to April 20th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 30th,2023 to June 6th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>April 27th,2023 to June 15th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>June 8th,2023 to July 11th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b> from <b>June 20th,2023 to August 8th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>July 13th,2023 to September 18th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>August 10th,2023 to September 13th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>September 15th,2023 to October 6th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b> from <b>September 20th,2023 to October 13th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>October 11th,2023 to November 17th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b> from <b>October 16th,2023 to October 17th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>November 20th,2023 to November 29th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>November 21st,2023 to December 15th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>December 18th,2023 to December 28th, 2023</b>.`,
 ];
 
 function MDWDIntakeJanuary2023() {
@@ -807,53 +827,40 @@ function MDWDIntakeJanuary2023() {
   let today = new Date();
 
   if (new Date(2023, 0, 3) <= today && today <= new Date(2023, 1, 2)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 1, 3) <= today && today <= new Date(2023, 1, 14)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 1, 15) <= today && today <= new Date(2023, 2, 21)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 2, 22) <= today && today <= new Date(2023, 2, 28)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[4]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[4]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 2, 29) <= today && today <= new Date(2023, 3, 25)) {
-    text += `<b>${MDWDListOfCourses[4]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[4]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed by <b>${MDWDListOfTeachers[1]}</b> and <b>${MDWDListOfTeachers[2]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 3, 26) <= today && today <= new Date(2023, 3, 6)) {
-    text += `<b>${MDWDListOfCourses[5]}</b> and <b>${MDWDListOfCourses[6]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[5]}</b> and <b>${MDWDListOfCourses[6]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 5, 7) <= today && today <= new Date(2023, 5, 15)) {
-    text += `<b>${MDWDListOfCourses[6]}</b> and <b>${MDWDListOfCourses[7]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[6]}</b> and <b>${MDWDListOfCourses[7]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 5, 16) <= today && today <= new Date(2023, 6, 11)) {
-    text += `<b>${MDWDListOfCourses[7]}</b> and <b>${MDWDListOfCourses[8]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[7]}</b> and <b>${MDWDListOfCourses[8]}</b> are currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
   } else if (new Date(2023, 6, 12) <= today && today <= new Date(2023, 7, 8)) {
-    text += `<b>${MDWDListOfCourses[8]}</b> and <b>${MDWDListOfCourses[9]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[8]}</b> and <b>${MDWDListOfCourses[9]}</b> are currently being instructed by <b>${MDWDListOfTeachers[1]}</b> and <b>${MDWDListOfTeachers[0]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 7, 9) <= today && today <= new Date(2023, 8, 13)) {
-    text += `<b>${MDWDListOfCourses[9]}</b>and <b>${MDWDListOfCourses[10]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[9]}</b>and <b>${MDWDListOfCourses[10]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 8, 14) <= today && today <= new Date(2023, 8, 18)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> and <b>${MDWDListOfCourses[11]}</b> are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[9]}</b> and <b>${MDWDListOfCourses[11]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
   } else if (new Date(2023, 8, 19) <= today && today <= new Date(2023, 9, 10)) {
-    text += `<b>${MDWDListOfCourses[11]}</b> and <b>${MDWDListOfCourses[12]}</b are currently being instructed. <br><br>`;
+    text += `<b>${MDWDListOfCourses[11]}</b> and <b>${MDWDListOfCourses[12]}</b are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[3]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 9, 11) <= today && today <= new Date(2023, 9, 15)) {
-    text += `<b>${MDWDListOfCourses[12]}</b> and <b>${MDWDListOfCourses[13]}</b> are currently being instructed. <br><br>`;
-  } else if (
-    new Date(2023, 9, 16) <= today &&
-    today <= new Date(2023, 10, 19)
-  ) {
-    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed. <br><br>`;
-  } else if (
-    new Date(2023, 10, 20) <= today &&
-    today <= new Date(2023, 10, 29)
-  ) {
-    text += `<b>${MDWDListOfCourses[15]}</b> and <b>${MDWDListOfCourses[16]}</b> are currently being instructed. <br><br>`;
-  } else if (
-    new Date(2023, 10, 30) <= today &&
-    today <= new Date(2023, 11, 15)
-  ) {
-    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed. <br><br>`;
-  } else if (
-    new Date(2023, 11, 16) <= today &&
-    today <= new Date(2023, 11, 29)
-  ) {
-    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed. <br><br>`;
-  } else {
-    text += "<b>This Intake has finished.</b> <br><br>";
+    text += `<b>${MDWDListOfCourses[12]}</b> and <b>${MDWDListOfCourses[13]}</b> are currently being instructed by <b>${MDWDListOfTeachers[3]}</b> and <b>${MDWDListOfTeachers[0]}</b> respectively. <br><br>`;
+  } else if (new Date(2023, 9, 16) <= today && today <= new Date(2023, 10, 19)
+  ) {text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[2]}</b> respectively. <br><br>`;
+  } else if (new Date(2023, 10, 20) <= today && today <= new Date(2023, 10, 29)
+  ) {text += `<b>${MDWDListOfCourses[15]}</b> and <b>${MDWDListOfCourses[16]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else if (new Date(2023, 10, 30) <= today && today <= new Date(2023, 11, 15)
+  ) {text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else if (new Date(2023, 11, 16) <= today && today <= new Date(2023, 11, 29)
+  ) {text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else {text += "<b>This Intake has finished.</b> <br><br>";
   }
 
   let contentMDWDIntakeJanuary2023 = `<b>List of the Students ${MDWDListOfIntakes[6]}</b>  <br><br>`;
@@ -987,7 +994,7 @@ document.getElementById("contentMDWDIntakeJanuary2023").innerHTML =
   ];
 
   const coursesMDWDIntakeSeptember2023 = [
-    `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+    `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 30th,2023 to June 6th, 2023</b>.<br>`,
     `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
     `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
     `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
@@ -1089,3 +1096,26 @@ function MDWDIntakeSeptember2023() {
 
 document.getElementById("contentMDWDIntakeSeptember2023").innerHTML =
   MDWDIntakeSeptember2023();
+
+
+
+  //BUSINESS
+
+
+  let BUSIListOfIntakes = [
+    "September 2023",
+  ];
+  
+
+
+let BUSItoday = new Date();
+let BUSIactiveIntakes='';
+
+if(new Date(2023, 8, 3) <= BUSItoday && BUSItoday <= new Date(2024, 7, 31)){
+  BUSIactiveIntakes= `${BUSIListOfIntakes[0]}` ; 
+}else{
+  BUSIactiveIntakes='No active Intake yet'
+};
+
+
+document.getElementById("BUSIintakeOngoing").innerHTML=`Intakes ongoing: ${BUSIactiveIntakes} `;

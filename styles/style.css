@@ -20,9 +20,14 @@
     display: flex;
     justify-content: start;
     width: 80%;
-    margin:  4rem auto;
+    margin:  2rem auto;
     text-align: center;
  
+}
+.program-sub-header{
+width: 80%;
+margin: 2rem auto;
+text-align: center;
 }
 
 .footer{
