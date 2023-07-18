@@ -1582,7 +1582,34 @@ function MDWDIntakeJanuary2023() {
 document.getElementById("contentMDWDIntakeJanuary2023").innerHTML =
   MDWDIntakeJanuary2023();
 
-const studentsMDWDIntakeSeptember2023 = [
+
+//BUSINESS DIPLOMA
+
+const BUSIListOfTeachers = ["Kamal Gill"];
+
+const BUSIListOfIntakes = ["September 2023"];
+
+const BUSIListOfCourses = [
+  "BUSI 1000 | Introduction to Financial Accounting",
+  "BUSI 1001 | Business Mathematics",
+  "BUSI 2000 | Microeconomic",
+  "BUSI 2001 | Business Law",
+  "BUSI 2002 | Business Statistics",
+  "BUSI 2003 | Macroeconomics",
+  "BUSI 2004 | Introductory Marketing",
+  "BUSI 2005 | Introduction to Managerial Accounting",
+  "BUSI 2006 | Business and Technical Communication",
+  "BUSI 2007 | Organizational Behaviour",
+  "BUSI 2008 | Introduction to Managerial Finance",
+  "BUSI 2009 | Introduction to Economics for Managers",
+  "BUSI 2010 | Entrepreneurship",
+  "BUSI 3000 | Operations Management",
+  "BUSI 3001 | Decision Analysis",
+  "BUSI 3002 | Project Management",
+  "BUSI 3003 | Management of Technology",
+];
+
+const studentsBUSIIntakeSeptember2023 = [
   {
     Name: "XX",
     lastname: "XX",
@@ -1680,156 +1707,12 @@ const studentsMDWDIntakeSeptember2023 = [
     email: "a0077@ciracollege.com",
   },
 ];
-
-const coursesMDWDIntakeSeptember2023 = [
-  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 30th,2023 to June 6th, 2023</b>.<br>`,
-  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b><br>`,
-  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b><br>`,
-  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b>`,
-];
-function MDWDIntakeSeptember2023() {
-  let text = `Intake Status: <br>`;
-  let today = new Date();
-
-  if (today < new Date(2023, 9, 11)) {
-    text += `<b>This Intake has not started yet</b> <br><br>`;
-  } else if (
-    new Date(2023, 9, 12) <= today &&
-    today <= new Date(2023, 10, 12)
-  ) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (
-    new Date(2023, 10, 13) <= today &&
-    today <= new Date(2023, 10, 31)
-  ) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (new Date(2023, 11, 1) <= today && today <= new Date(2023, 11, 9)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (
-    new Date(2023, 11, 10) <= today &&
-    today <= new Date(2023, 12, 5)
-  ) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[4]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (
-    new Date(2023, 12, 6) <= today &&
-    today <= new Date(2023, 12, 11)
-  ) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (
-    new Date(2023, 12, 12) <= today &&
-    today <= new Date(2023, 12, 22)
-  ) {
-    text += `<b>${MDWDListOfCourses[4]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed by ${MDWDListOfTeachers[1]} and ${MDWDListOfTeachers[0]} respectively. <br><br>`;
-  } else if (new Date(2024, 1, 8) <= today && today <= new Date(2024, 2, 11)) {
-    text += `<b>${MDWDListOfCourses[5]}</b> and <b>${MDWDListOfCourses[6]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 2, 12) <= today && today <= new Date(2024, 2, 16)) {
-    text += `<b>${MDWDListOfCourses[5]}</b> and <b>${MDWDListOfCourses[7]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (new Date(2024, 2, 17) <= today && today <= new Date(2024, 2, 22)) {
-    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by ${MDWDListOfTeachers[1]}. <br><br>`;
-  } else if (new Date(2024, 2, 23) <= today && today <= new Date(2024, 3, 4)) {
-    text += `<b>${MDWDListOfCourses[7]}</b>and <b>${MDWDListOfCourses[8]}</b> are currently being instructed by ${MDWDListOfTeachers[1]}. <br><br>`;
-  } else if (new Date(2024, 3, 5) <= today && today <= new Date(2024, 3, 27)) {
-    text += `<b>${MDWDListOfCourses[8]}</b> and <b>${MDWDListOfCourses[9]}</b> are currently being instructed by ${MDWDListOfTeachers[1]} and ${MDWDListOfTeachers[0]} respectively. <br><br>`;
-  } else if (new Date(2024, 3, 28) <= today && today <= new Date(2024, 4, 4)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 4, 5) <= today && today <= new Date(2024, 4, 24)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> and <b>${MDWDListOfCourses[10]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 4, 25) <= today && today <= new Date(2024, 4, 26)) {
-    text += `<b>${MDWDListOfCourses[10]}</b> and <b>${MDWDListOfCourses[11]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 4, 27) <= today && today <= new Date(2024, 5, 21)) {
-    text += `<b>${MDWDListOfCourses[11]}</b> and <b>${MDWDListOfCourses[13]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 5, 22) <= today && today <= new Date(2024, 6, 14)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[2]} respectively. <br><br>`;
-  } else if (new Date(2024, 6, 15) <= today && today <= new Date(2024, 7, 5)) {
-    text += `<b>${MDWDListOfCourses[14]}</b> and <b>${MDWDListOfCourses[15]}</b> are currently being instructed by ${MDWDListOfTeachers[2]} and ${MDWDListOfTeachers[0]} respectively. <br><br>`;
-  } else if (new Date(2024, 7, 6) <= today && today <= new Date(2024, 7, 9)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[2]} respectively. <br><br>`;
-  } else if (new Date(2024, 7, 10) <= today && today <= new Date(2024, 7, 12)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[15]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 7, 13) <= today && today <= new Date(2024, 7, 26)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[16]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 7, 27) <= today && today <= new Date(2024, 8, 15)) {
-    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 8, 16) <= today && today <= new Date(2024, 8, 30)) {
-    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else {
-    text += "<b>This Intake has finished.</b> <br><br>";
-  }
-
-  let contentMDWDIntakeSeptember2023 = `<b>List of the Students ${MDWDListOfIntakes[7]}</b>  <br><br>`;
-
-  for (let i = 0; i < studentsMDWDIntakeSeptember2023.length; i++) {
-    contentMDWDIntakeSeptember2023 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeSeptember2023[i].Name + " ";
-    contentMDWDIntakeSeptember2023 +=
-      studentsMDWDIntakeSeptember2023[i].lastname + "<br>";
-    contentMDWDIntakeSeptember2023 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeSeptember2023[i].id + "<br>";
-    contentMDWDIntakeSeptember2023 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeSeptember2023[i].email +
-      "<br>" +
-      "<br>";
-  }
-
-  contentMDWDIntakeSeptember2023 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[7]}</b> <br><br>`;
-
-  for (let course of coursesMDWDIntakeSeptember2023) {
-    contentMDWDIntakeSeptember2023 += course + "<br>";
-  }
-
-  return text + contentMDWDIntakeSeptember2023;
-}
-
-document.getElementById("contentMDWDIntakeSeptember2023").innerHTML =
-  MDWDIntakeSeptember2023();
-
-//BUSINESS DIPLOMA
-
-let BUSIListOfTeachers = ["Kamal Gill"];
-
-const BUSIListOfIntakes = ["September 2023"];
-
-const BUSIListOfCourses = [
-  "BUSI 1000 | Introduction to Financial Accounting",
-  "BUSI 1001 | Business Mathematics",
-  "BUSI 2000 | Microeconomic",
-  "BUSI 2001 | Business Law",
-  "BUSI 2002 | Business Statistics",
-  "BUSI 2003 | Macroeconomics",
-  "BUSI 2004 | Introductory Marketing",
-  "BUSI 2005 | Introduction to Managerial Accounting",
-  "BUSI 2006 | Business and Technical Communication",
-  "BUSI 2007 | Organizational Behaviour",
-  "BUSI 2008 | Introduction to Managerial Finance",
-  "BUSI 2009 | Introduction to Economics for Managers",
-  "BUSI 2010 | Entrepreneurship",
-  "BUSI 3000 | Operations Management",
-  "BUSI 3001 | Decision Analysis",
-  "BUSI 3002 | Project Management",
-  "BUSI 3003 | Management of Technology",
-];
-
 // Status general of intakes
 
-let BUSItoday = new Date();
-let BUSIactiveIntakes = "";
+const BUSItoday = new Date();
+const BUSIactiveIntakes = "";
 
-if (new Date(2023, 8, 3) <= BUSItoday && BUSItoday <= new Date(2024, 7, 31)) {
+if (new Date("2023-09-03") <= BUSItoday && BUSItoday <= new Date("2024-08-31")) {
   BUSIactiveIntakes = `${BUSIListOfIntakes[0]}`;
 } else {
   BUSIactiveIntakes = "No active Intake yet";
@@ -1844,10 +1727,10 @@ document.getElementById(
 function BUSIIntakeSeptember2023() {
   //Status Intake
 
-  let statusTitleBUSIIntakeSeptember2023 = document.querySelector(
+  const statusTitleBUSIIntakeSeptember2023 = document.querySelector(
     ".statusTitleBUSIIntakeSeptember2023"
   );
-  let statusContentBUSIIntakeSeptember2023 = document.querySelector(
+  const statusContentBUSIIntakeSeptember2023 = document.querySelector(
     ".statusContentBUSIIntakeSeptember2023"
   );
 
@@ -1862,42 +1745,10 @@ function BUSIIntakeSeptember2023() {
 
   text = ``;
 
-  if (new Date(2022, 8, 12) <= today && today <= new Date(2022, 9, 20)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2022, 9, 21) <= today && today <= new Date(2022, 10, 4)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2022, 10, 5) <= today && today <= new Date(2023, 0, 3)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively.`;
-  } else if (new Date(2022, 0, 4) <= today && today <= new Date(2023, 0, 15)) {
-    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
-  } else if (new Date(2023, 0, 16) <= today && today <= new Date(2023, 1, 7)) {
-    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 1, 8) <= today && today <= new Date(2023, 1, 27)) {
-    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 1, 27) <= today && today <= new Date(2023, 2, 10)) {
-    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
-  } else if (new Date(2023, 3, 10) <= today && today <= new Date(2023, 3, 28)) {
-    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
-  } else if (new Date(2023, 2, 29) <= today && today <= new Date(2023, 3, 25)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 3, 26) <= today && today <= new Date(2023, 4, 5)) {
-    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 4, 6) <= today && today <= new Date(2023, 4, 17)) {
-    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 4, 18) <= today && today <= new Date(2023, 4, 31)) {
-    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed by <b>${MDWDListOfTeachers[3]}</b>.`;
-  } else if (new Date(2023, 5, 1) <= today && today <= new Date(2023, 5, 23)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 5, 24) <= today && today <= new Date(2023, 6, 18)) {
-    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed by <b>${MDWDListOfTeachers[14]}</b>.`;
-  } else if (new Date(2023, 6, 19) <= today && today <= new Date(2023, 6, 28)) {
-    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 6, 29) <= today && today <= new Date(2023, 7, 23)) {
-    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else if (new Date(2023, 7, 22) <= today && today <= new Date(2023, 7, 31)) {
-    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
-  } else {
-    text += "<b>This Intake has concluded.</b>";
+  if(today<new Date("2023-09-03")){
+    text= `<b>This intake has not started yet.</b>`;
+  }else {
+    text= "<b>This Intake has concluded.</b>";
   }
 
   // Assign the text to new div
@@ -1934,17 +1785,17 @@ function BUSIIntakeSeptember2023() {
   var tbody = document.createElement("tbody");
 
   // Create table rows and cells
-  for (var i = 0; i < studentsMDWDIntakeJanuary2022.length; i++) {
+  for (var i = 0; i < studentsBUSIIntakeSeptember2023.length; i++) {
     var row = document.createElement("tr");
     var cell1 = document.createElement("td");
     var cell2 = document.createElement("td");
     var cell3 = document.createElement("td");
     var cell4 = document.createElement("td");
 
-    cell1.textContent = studentsMDWDIntakeJanuary2022[i].Name;
-    cell2.textContent = studentsMDWDIntakeJanuary2022[i].lastname;
-    cell3.textContent = studentsMDWDIntakeJanuary2022[i].id;
-    cell4.textContent = studentsMDWDIntakeJanuary2022[i].email;
+    cell1.textContent = studentsBUSIIntakeSeptember2023[i].Name;
+    cell2.textContent = studentsBUSIIntakeSeptember2023[i].lastname;
+    cell3.textContent = studentsBUSIIntakeSeptember2023[i].id;
+    cell4.textContent = studentsBUSIIntakeSeptember2023[i].email;
 
     row.appendChild(cell1);
     row.appendChild(cell2);
