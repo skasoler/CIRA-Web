@@ -1,11 +1,26 @@
 //List of teachers, courses and intakes
 
+const today = new Date();
+
 let MDWDListOfTeachers = [
   "Daryl Askey",
   "Daniel Wedderien",
+  "Daryl Askey",
+  "Daniel Wedderien",
+  "Daniel Wedderien",
   "Nazanin Hashemian",
+  "Daryl Askey",
+  "Daniel Wedderien",
+  "Daniel Wedderien",
+  "Daryl Askey",
+  "Daryl Askey",
+  "Daryl Askey",
   "Thomas Jones",
-  "Daniel García",
+  "Daryl Askey",
+  "Nazanin Hashemian",
+  "Daryl Askey",
+  "Daryl Askey",
+  "Daryl Askey",
 ];
 
 let MDWDListOfCourses = [
@@ -40,25 +55,40 @@ let MDWDListOfIntakes = [
   "September 2023",
 ];
 
-
 let MDWDtoday = new Date();
-let MDWDactiveIntakes='';
+let MDWDactiveIntakes = "";
 
-if(new Date(2022, 8, 12) <= MDWDtoday && MDWDtoday <= new Date(2023, 7, 31) && new Date(2023, 0, 3) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16)){
-  MDWDactiveIntakes= `${MDWDListOfIntakes[5]} and ${MDWDListOfIntakes[6]} ` ; 
-}else if(new Date(2023, 8,1) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16)){
-  MDWDactiveIntakes= `${MDWDListOfIntakes[6]}`;
-}else if(new Date(2023, 0, 3) <= MDWDtoday && MDWDtoday <= new Date(2023, 11, 16) && new Date(2023,8,12) <=MDWDtoday && MDWDtoday<= new Date(2024,7,26)){
-  MDWDactiveIntakes= `${MDWDListOfIntakes[6]} and ${MDWDListOfIntakes[7]} `;
-}else if(new Date(2023, 11,17) <= MDWDtoday && MDWDtoday <= new Date(2024, 7, 26)){
-  MDWDactiveIntakes= `${MDWDListOfIntakes[7]}`
-}else{
-  MDWDactiveIntakes='error'
-};
+if (
+  new Date(2022, 8, 12) <= MDWDtoday &&
+  MDWDtoday <= new Date(2023, 7, 31) &&
+  new Date(2023, 0, 3) <= MDWDtoday &&
+  MDWDtoday <= new Date(2023, 11, 16)
+) {
+  MDWDactiveIntakes = `${MDWDListOfIntakes[5]} and ${MDWDListOfIntakes[6]} `;
+} else if (
+  new Date(2023, 8, 1) <= MDWDtoday &&
+  MDWDtoday <= new Date(2023, 11, 16)
+) {
+  MDWDactiveIntakes = `${MDWDListOfIntakes[6]}`;
+} else if (
+  new Date(2023, 0, 3) <= MDWDtoday &&
+  MDWDtoday <= new Date(2023, 11, 16) &&
+  new Date(2023, 8, 12) <= MDWDtoday &&
+  MDWDtoday <= new Date(2024, 7, 26)
+) {
+  MDWDactiveIntakes = `${MDWDListOfIntakes[6]} and ${MDWDListOfIntakes[7]} `;
+} else if (
+  new Date(2023, 11, 17) <= MDWDtoday &&
+  MDWDtoday <= new Date(2024, 7, 26)
+) {
+  MDWDactiveIntakes = `${MDWDListOfIntakes[7]}`;
+} else {
+  MDWDactiveIntakes = "error";
+}
 
-
-document.getElementById("MDWDintakeOngoing").innerHTML=`Intakes ongoing: ${MDWDactiveIntakes} `;
-
+document.getElementById(
+  "MDWDintakeOngoing"
+).innerHTML = `Intakes ongoing: ${MDWDactiveIntakes}`;
 
 //Specific student, course list and function for Intake 2020
 
@@ -117,34 +147,144 @@ const MDWDcoursesIntake2020 = [
 ];
 
 function MDWDIntake2020() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
 
-  text += "<b>This Intake has finished</b> <br><br><br>";
+  // Create table element
+  var table = document.createElement("table");
 
-  let contentMDWDIntake2020 = `<b>List of the Students ${MDWDListOfIntakes[0]}</b>  <br><br>`;
+  // Create table body
+  var tbody = document.createElement("tbody");
 
-  for (let i = 0; i < MDWDstudentsIntake2020.length; i++) {
-    contentMDWDIntake2020 +=
-      "<b>Student Name: </b>" + MDWDstudentsIntake2020[i].Name + " ";
-    contentMDWDIntake2020 += MDWDstudentsIntake2020[i].lastname + "<br>";
-    contentMDWDIntake2020 +=
-      "<b>Student ID: </b>" + MDWDstudentsIntake2020[i].id + "<br>";
-    contentMDWDIntake2020 +=
-      "<b>Student Email: </b>" +
-      MDWDstudentsIntake2020[i].email +
-      "<br>" +
-      "<br>";
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  cell1.textContent = `This Intake has concluded`;
+  row.appendChild(cell1);
+  tbody.appendChild(row);
+  table.appendChild(tbody);
+
+  var titleStatusTable = document.createElement("h4");
+  titleStatusTable.textContent = "Intake Status";
+
+  // Select the target div
+  var targetDiv = document.getElementById("statusMDWDIntake2020");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStatusTable);
+  targetDiv.appendChild(table);
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDstudentsIntake2020.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = MDWDstudentsIntake2020[i].Name;
+    cell2.textContent = MDWDstudentsIntake2020[i].lastname;
+    cell3.textContent = MDWDstudentsIntake2020[i].id;
+    cell4.textContent = MDWDstudentsIntake2020[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntake2020 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[0]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of MDWDcoursesIntake2020) {
-    contentMDWDIntake2020 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntake2020");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntake2020;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntake2020");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntake2020").innerHTML = MDWDIntake2020();
 
 //Specific student, course list and function for Intake January 2021
 
@@ -209,36 +349,144 @@ const coursesMDWDIntakeJanuary2021 = [
 ];
 
 function MDWDIntakeJanuary2021() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
 
-  text += "<b>This Intake has finished</b> <br><br><br>";
+  // Create table element
+  var table = document.createElement("table");
 
-  let contentMDWDIntakeJanuary2021 = `<b>List of the Students ${MDWDListOfIntakes[1]}</b>  <br><br>`;
+  // Create table body
+  var tbody = document.createElement("tbody");
 
-  for (let i = 0; i < studentsMDWDIntakeJanuary2021.length; i++) {
-    contentMDWDIntakeJanuary2021 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeJanuary2021[i].Name + " ";
-    contentMDWDIntakeJanuary2021 +=
-      studentsMDWDIntakeJanuary2021[i].lastname + "<br>";
-    contentMDWDIntakeJanuary2021 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeJanuary2021[i].id + "<br>";
-    contentMDWDIntakeJanuary2021 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeJanuary2021[i].email +
-      "<br>" +
-      "<br>";
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  cell1.textContent = `This Intake has concluded`;
+  row.appendChild(cell1);
+  tbody.appendChild(row);
+  table.appendChild(tbody);
+
+  var titleStatusTable = document.createElement("h4");
+  titleStatusTable.textContent = "Intake Status";
+
+  // Select the target div
+  var targetDiv = document.getElementById("statusMDWDIntakeJanuary2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStatusTable);
+  targetDiv.appendChild(table);
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeJanuary2021.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeJanuary2021[i].Name;
+    cell2.textContent = studentsMDWDIntakeJanuary2021[i].lastname;
+    cell3.textContent = studentsMDWDIntakeJanuary2021[i].id;
+    cell4.textContent = studentsMDWDIntakeJanuary2021[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntakeJanuary2021 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[1]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of coursesMDWDIntakeJanuary2021) {
-    contentMDWDIntakeJanuary2021 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntakeJanuary2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntakeJanuary2021;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntakeJanuary2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntakeJanuary2021").innerHTML =
-  MDWDIntakeJanuary2021();
 
 //Specific student, course list and function for Intake September 2021
 
@@ -297,36 +545,144 @@ const coursesMDWDIntakeSeptember2021 = [
 ];
 
 function MDWDIntakeSeptember2021() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
 
-  text += "<b>This Intake has finished</b> <br><br><br>";
+  // Create table element
+  var table = document.createElement("table");
 
-  let contentMDWDIntakeSeptember2021 = `<b>List of the Students ${MDWDListOfIntakes[2]}</b>  <br><br>`;
+  // Create table body
+  var tbody = document.createElement("tbody");
 
-  for (let i = 0; i < studentsMDWDIntakeSeptember2021.length; i++) {
-    contentMDWDIntakeSeptember2021 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeSeptember2021[i].Name + " ";
-    contentMDWDIntakeSeptember2021 +=
-      studentsMDWDIntakeSeptember2021[i].lastname + "<br>";
-    contentMDWDIntakeSeptember2021 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeSeptember2021[i].id + "<br>";
-    contentMDWDIntakeSeptember2021 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeSeptember2021[i].email +
-      "<br>" +
-      "<br>";
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  cell1.textContent = `This Intake has concluded`;
+  row.appendChild(cell1);
+  tbody.appendChild(row);
+  table.appendChild(tbody);
+
+  var titleStatusTable = document.createElement("h4");
+  titleStatusTable.textContent = "Intake Status";
+
+  // Select the target div
+  var targetDiv = document.getElementById("statusMDWDIntakeSeptember2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStatusTable);
+  targetDiv.appendChild(table);
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeSeptember2021.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeSeptember2021[i].Name;
+    cell2.textContent = studentsMDWDIntakeSeptember2021[i].lastname;
+    cell3.textContent = studentsMDWDIntakeSeptember2021[i].id;
+    cell4.textContent = studentsMDWDIntakeSeptember2021[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntakeSeptember2021 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[2]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of coursesMDWDIntakeSeptember2021) {
-    contentMDWDIntakeSeptember2021 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntakeSeptember2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntakeSeptember2021;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntakeSeptember2021");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntakeSeptember2021").innerHTML =
-  MDWDIntakeSeptember2021();
 
 //Specific student, course list and function for Intake January 2022
 
@@ -403,37 +759,144 @@ const coursesMDWDIntakeJanuary2022 = [
 ];
 
 function MDWDIntakeJanuary2022() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
 
-  text += "<b>This Intake has finished</b> <br><br><br>";
+  // Create table element
+  var table = document.createElement("table");
 
-  let contentMDWDIntakeJanuary2022 = `<b>List of the Students ${MDWDListOfIntakes[3]}</b>  <br><br>`;
+  // Create table body
+  var tbody = document.createElement("tbody");
 
-  for (let i = 0; i < studentsMDWDIntakeJanuary2022.length; i++) {
-    contentMDWDIntakeJanuary2022 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeJanuary2022[i].Name + " ";
-    contentMDWDIntakeJanuary2022 +=
-      studentsMDWDIntakeJanuary2022[i].lastname + "<br>";
-    contentMDWDIntakeJanuary2022 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeJanuary2022[i].id + "<br>";
-    contentMDWDIntakeJanuary2022 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeJanuary2022[i].email +
-      "<br>" +
-      "<br>";
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  cell1.textContent = `This Intake has concluded`;
+  row.appendChild(cell1);
+  tbody.appendChild(row);
+  table.appendChild(tbody);
+
+  var titleStatusTable = document.createElement("h4");
+  titleStatusTable.textContent = "Intake Status";
+
+  // Select the target div
+  var targetDiv = document.getElementById("statusMDWDIntakeJanuary2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStatusTable);
+  targetDiv.appendChild(table);
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeJanuary2022.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeJanuary2022[i].Name;
+    cell2.textContent = studentsMDWDIntakeJanuary2022[i].lastname;
+    cell3.textContent = studentsMDWDIntakeJanuary2022[i].id;
+    cell4.textContent = studentsMDWDIntakeJanuary2022[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntakeJanuary2022 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[3]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of coursesMDWDIntakeJanuary2022) {
-    contentMDWDIntakeJanuary2022 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntakeJanuary2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntakeJanuary2022;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntakeJanuary2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntakeJanuary2022").innerHTML =
-  MDWDIntakeJanuary2022();
-
 //Specific student, course list and function for Intake May 2022
 
 const studentsMDWDIntakeMay2022 = [
@@ -497,35 +960,144 @@ const coursesMDWDIntakeMay2022 = [
 ];
 
 function MDWDIntakeMay2022() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
 
-  text += "<b>This Intake has finished</b> <br><br><br>";
+  // Create table element
+  var table = document.createElement("table");
 
-  let contentMDWDIntakeMay2022 = `<b>List of the Students ${MDWDListOfIntakes[4]}</b>  <br><br>`;
+  // Create table body
+  var tbody = document.createElement("tbody");
 
-  for (let i = 0; i < studentsMDWDIntakeMay2022.length; i++) {
-    contentMDWDIntakeMay2022 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeMay2022[i].Name + " ";
-    contentMDWDIntakeMay2022 += studentsMDWDIntakeMay2022[i].lastname + "<br>";
-    contentMDWDIntakeMay2022 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeMay2022[i].id + "<br>";
-    contentMDWDIntakeMay2022 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeMay2022[i].email +
-      "<br>" +
-      "<br>";
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  cell1.textContent = `This Intake has concluded`;
+  row.appendChild(cell1);
+  tbody.appendChild(row);
+  table.appendChild(tbody);
+
+  var titleStatusTable = document.createElement("h4");
+  titleStatusTable.textContent = "Intake Status";
+
+  // Select the target div
+  var targetDiv = document.getElementById("statusMDWDIntakeMay2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStatusTable);
+  targetDiv.appendChild(table);
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeMay2022.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeMay2022[i].Name;
+    cell2.textContent = studentsMDWDIntakeMay2022[i].lastname;
+    cell3.textContent = studentsMDWDIntakeMay2022[i].id;
+    cell4.textContent = studentsMDWDIntakeMay2022[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntakeMay2022 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[4]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of coursesMDWDIntakeMay2022) {
-    contentMDWDIntakeMay2022 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntakeMay2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntakeMay2022;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntakeMay2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntakeMay2022").innerHTML =
-  MDWDIntakeMay2022();
 
 //Specific student, course list and function for Intake September 2022
 
@@ -632,73 +1204,180 @@ const coursesMDWDIntakeSeptember2022 = [
 ];
 
 function MDWDIntakeSeptember2022() {
-  let text = `Intake Status: <br>`;
+  //Status Intake
+
+  let statusTitleMDWDIntakeSeptember2022 = document.querySelector(
+    ".statusTitleMDWDIntakeSeptember2022"
+  );
+  let statusContentMDWDIntakeSeptember2022 = document.querySelector(
+    ".statusContentMDWDIntakeSeptember2022"
+  );
+
+  // Check if h4 element already exists
+  let h4 = statusTitleMDWDIntakeSeptember2022.querySelector("h4");
+  if (!h4) {
+    // Create the h4 element
+    h4 = document.createElement("h4");
+    h4.textContent = "Intake Status";
+    statusTitleMDWDIntakeSeptember2022.appendChild(h4);
+  }
+
+  text = ``;
   let today = new Date();
 
   if (new Date(2022, 8, 12) <= today && today <= new Date(2022, 9, 20)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2022, 9, 21) <= today && today <= new Date(2022, 10, 4)) {
-    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2022, 10, 5) <= today && today <= new Date(2023, 0, 3)) {
-    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively. <br><br>`;
+    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively.`;
   } else if (new Date(2022, 0, 4) <= today && today <= new Date(2023, 0, 15)) {
-    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
   } else if (new Date(2023, 0, 16) <= today && today <= new Date(2023, 1, 7)) {
-    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 1, 8) <= today && today <= new Date(2023, 1, 27)) {
-    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 1, 27) <= today && today <= new Date(2023, 2, 10)) {
-    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
   } else if (new Date(2023, 3, 10) <= today && today <= new Date(2023, 3, 28)) {
-    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
   } else if (new Date(2023, 2, 29) <= today && today <= new Date(2023, 3, 25)) {
-    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 3, 26) <= today && today <= new Date(2023, 4, 5)) {
-    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 4, 6) <= today && today <= new Date(2023, 4, 17)) {
-    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 4, 18) <= today && today <= new Date(2023, 4, 31)) {
-    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed by <b>${MDWDListOfTeachers[3]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed by <b>${MDWDListOfTeachers[3]}</b>.`;
   } else if (new Date(2023, 5, 1) <= today && today <= new Date(2023, 5, 23)) {
-    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 5, 24) <= today && today <= new Date(2023, 6, 18)) {
-    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed by <b>${MDWDListOfTeachers[2]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed by <b>${MDWDListOfTeachers[14]}</b>.`;
   } else if (new Date(2023, 6, 19) <= today && today <= new Date(2023, 6, 28)) {
-    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 6, 29) <= today && today <= new Date(2023, 7, 23)) {
-    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else if (new Date(2023, 7, 22) <= today && today <= new Date(2023, 7, 31)) {
-    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
   } else {
-    text += "<b>This Intake has finished.</b> <br><br>";
+    text += "<b>This Intake has concluded.</b>";
   }
 
-  let contentMDWDIntakeSeptember2022 = `<b>List of the Students ${MDWDListOfIntakes[5]}</b>  <br><br>`;
+  // Assign the text to div2
+  statusContentMDWDIntakeSeptember2022.innerHTML = text;
+  statusContentMDWDIntakeSeptember2022.style.border = "2px solid";
+  statusContentMDWDIntakeSeptember2022.style.marginTop = "1em";
 
-  for (let i = 0; i < studentsMDWDIntakeSeptember2022.length; i++) {
-    contentMDWDIntakeSeptember2022 +=
-      "<b>Student Name: </b>" + studentsMDWDIntakeSeptember2022[i].Name + " ";
-    contentMDWDIntakeSeptember2022 +=
-      studentsMDWDIntakeSeptember2022[i].lastname + "<br>";
-    contentMDWDIntakeSeptember2022 +=
-      "<b>Student ID: </b>" + studentsMDWDIntakeSeptember2022[i].id + "<br>";
-    contentMDWDIntakeSeptember2022 +=
-      "<b>Student Email: </b>" +
-      studentsMDWDIntakeSeptember2022[i].email +
-      "<br>" +
-      "<br>";
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeSeptember2022.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeSeptember2022[i].Name;
+    cell2.textContent = studentsMDWDIntakeSeptember2022[i].lastname;
+    cell3.textContent = studentsMDWDIntakeSeptember2022[i].id;
+    cell4.textContent = studentsMDWDIntakeSeptember2022[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  contentMDWDIntakeSeptember2022 += `<br><br><b>List of courses and Instructors ${MDWDListOfIntakes[5]}</b> <br><br>`;
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
 
-  for (let course of coursesMDWDIntakeSeptember2022) {
-    contentMDWDIntakeSeptember2022 += course + "<br>";
+  // Select the target div
+  var targetDiv = document.getElementById("studentsMDWDIntakeSeptember2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < MDWDListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = MDWDListOfCourses[i];
+    cell2.textContent = MDWDListOfTeachers[i];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
   }
+  table.appendChild(tbody);
 
-  return text + contentMDWDIntakeSeptember2022;
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesMDWDIntakeSeptember2022");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-document.getElementById("contentMDWDIntakeSeptember2022").innerHTML =
-  MDWDIntakeSeptember2022();
 
 //Specific student, course list and function for Intake January 2023
 
@@ -852,15 +1531,28 @@ function MDWDIntakeJanuary2023() {
     text += `<b>${MDWDListOfCourses[11]}</b> and <b>${MDWDListOfCourses[12]}</b are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[3]}</b> respectively. <br><br>`;
   } else if (new Date(2023, 9, 11) <= today && today <= new Date(2023, 9, 15)) {
     text += `<b>${MDWDListOfCourses[12]}</b> and <b>${MDWDListOfCourses[13]}</b> are currently being instructed by <b>${MDWDListOfTeachers[3]}</b> and <b>${MDWDListOfTeachers[0]}</b> respectively. <br><br>`;
-  } else if (new Date(2023, 9, 16) <= today && today <= new Date(2023, 10, 19)
-  ) {text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[2]}</b> respectively. <br><br>`;
-  } else if (new Date(2023, 10, 20) <= today && today <= new Date(2023, 10, 29)
-  ) {text += `<b>${MDWDListOfCourses[15]}</b> and <b>${MDWDListOfCourses[16]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
-  } else if (new Date(2023, 10, 30) <= today && today <= new Date(2023, 11, 15)
-  ) {text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
-  } else if (new Date(2023, 11, 16) <= today && today <= new Date(2023, 11, 29)
-  ) {text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
-  } else {text += "<b>This Intake has finished.</b> <br><br>";
+  } else if (
+    new Date(2023, 9, 16) <= today &&
+    today <= new Date(2023, 10, 19)
+  ) {
+    text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[2]}</b> respectively. <br><br>`;
+  } else if (
+    new Date(2023, 10, 20) <= today &&
+    today <= new Date(2023, 10, 29)
+  ) {
+    text += `<b>${MDWDListOfCourses[15]}</b> and <b>${MDWDListOfCourses[16]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else if (
+    new Date(2023, 10, 30) <= today &&
+    today <= new Date(2023, 11, 15)
+  ) {
+    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else if (
+    new Date(2023, 11, 16) <= today &&
+    today <= new Date(2023, 11, 29)
+  ) {
+    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>. <br><br>`;
+  } else {
+    text += "<b>This Intake has finished.</b> <br><br>";
   }
 
   let contentMDWDIntakeJanuary2023 = `<b>List of the Students ${MDWDListOfIntakes[6]}</b>  <br><br>`;
@@ -890,147 +1582,157 @@ function MDWDIntakeJanuary2023() {
 document.getElementById("contentMDWDIntakeJanuary2023").innerHTML =
   MDWDIntakeJanuary2023();
 
-  //IN PROGRESS
+const studentsMDWDIntakeSeptember2023 = [
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0099",
+    email: "a0099@ciracollege.com",
+  },
+  {
+    Name: "XX XX",
+    lastname: "XX",
+    id: "A0095",
+    email: "a0095@ciracollege.com",
+  },
+  {
+    Name: "XX XX",
+    lastname: "XX",
+    id: "A0094",
+    email: "a0094@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0082",
+    email: "a0082@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0087",
+    email: "a0087@ciracollege.com",
+  },
+  {
+    Name: "XX XX",
+    lastname: "XX",
+    id: "A0100",
+    email: "a0100@ciracollege.com",
+  },
+  {
+    Name: "XX XX",
+    lastname: "XX",
+    id: "A0076",
+    email: "a0076@ciracollege.com",
+  },
+  {
+    Name: "XX XX XX",
+    lastname: "XX",
+    id: "A0070",
+    email: "a0070@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0074",
+    email: "a0074@ciracollege.com",
+  },
+  {
+    Name: "XX XX XX",
+    lastname: "XX",
+    id: "A0084",
+    email: "a0084@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0098",
+    email: "a0098@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0090",
+    email: "a0090@ciracollege.com",
+  },
+  {
+    Name: "XX XX XX",
+    lastname: "XX",
+    id: "A0132",
+    email: "a0132@ciracollege.com",
+  },
+  {
+    Name: "XX XX",
+    lastname: "XX",
+    id: "A0088",
+    email: "a0088@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0086",
+    email: "a0086@ciracollege.com",
+  },
+  {
+    Name: "XX",
+    lastname: "XX",
+    id: "A0077",
+    email: "a0077@ciracollege.com",
+  },
+];
 
-
-
-  const studentsMDWDIntakeSeptember2023 = [
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0099",
-      email: "a0099@ciracollege.com",
-    },
-    {
-      Name: "XX XX",
-      lastname: "XX",
-      id: "A0095",
-      email: "a0095@ciracollege.com",
-    },
-    {
-      Name: "XX XX",
-      lastname: "XX",
-      id: "A0094",
-      email: "a0094@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0082",
-      email: "a0082@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0087",
-      email: "a0087@ciracollege.com",
-    },
-    {
-      Name: "XX XX",
-      lastname: "XX",
-      id: "A0100",
-      email: "a0100@ciracollege.com",
-    },
-    {
-      Name: "XX XX",
-      lastname: "XX",
-      id: "A0076",
-      email: "a0076@ciracollege.com",
-    },
-    {
-      Name: "XX XX XX",
-      lastname: "XX",
-      id: "A0070",
-      email: "a0070@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0074",
-      email: "a0074@ciracollege.com",
-    },
-    {
-      Name: "XX XX XX",
-      lastname: "XX",
-      id: "A0084",
-      email: "a0084@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0098",
-      email: "a0098@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0090",
-      email: "a0090@ciracollege.com",
-    },
-    {
-      Name: "XX XX XX",
-      lastname: "XX",
-      id: "A0132",
-      email: "a0132@ciracollege.com",
-    },
-    {
-      Name: "XX XX",
-      lastname: "XX",
-      id: "A0088",
-      email: "a0088@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0086",
-      email: "a0086@ciracollege.com",
-    },
-    {
-      Name: "XX",
-      lastname: "XX",
-      id: "A0077",
-      email: "a0077@ciracollege.com",
-    },
-  ];
-
-  const coursesMDWDIntakeSeptember2023 = [
-    `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 30th,2023 to June 6th, 2023</b>.<br>`,
-    `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-    `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-    `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-    `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
-    `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b><br>`,
-    `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b><br>`,
-    `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
-    `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b>`,
-  ];
+const coursesMDWDIntakeSeptember2023 = [
+  `<b>${MDWDListOfCourses[0]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b> from <b>March 30th,2023 to June 6th, 2023</b>.<br>`,
+  `<b>${MDWDListOfCourses[1]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[2]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[3]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
+  `<b>${MDWDListOfCourses[4]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
+  `<b>${MDWDListOfCourses[5]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[6]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[7]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
+  `<b>${MDWDListOfCourses[8]}</b> instructed by <b>${MDWDListOfTeachers[1]}</b><br>`,
+  `<b>${MDWDListOfCourses[9]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[10]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[11]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[12]}</b> instructed by <b>${MDWDListOfTeachers[3]}</b><br>`,
+  `<b>${MDWDListOfCourses[13]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[14]}</b> instructed by <b>${MDWDListOfTeachers[2]}</b><br>`,
+  `<b>${MDWDListOfCourses[15]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[16]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b><br>`,
+  `<b>${MDWDListOfCourses[17]}</b> instructed by <b>${MDWDListOfTeachers[0]}</b>`,
+];
 function MDWDIntakeSeptember2023() {
   let text = `Intake Status: <br>`;
   let today = new Date();
 
-  if(today< new Date(2023,9,11)){
+  if (today < new Date(2023, 9, 11)) {
     text += `<b>This Intake has not started yet</b> <br><br>`;
-  }
-  else if (new Date(2023, 9, 12) <= today && today <= new Date(2023, 10, 12)) {
+  } else if (
+    new Date(2023, 9, 12) <= today &&
+    today <= new Date(2023, 10, 12)
+  ) {
     text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2023, 10, 13) <= today && today <= new Date(2023, 10, 31)) {
+  } else if (
+    new Date(2023, 10, 13) <= today &&
+    today <= new Date(2023, 10, 31)
+  ) {
     text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (new Date(2023, 11, 1) <= today && today <= new Date(2023,11, 9)) {
+  } else if (new Date(2023, 11, 1) <= today && today <= new Date(2023, 11, 9)) {
     text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (new Date(2023,11, 10) <= today && today <= new Date(2023, 12, 5)) {
+  } else if (
+    new Date(2023, 11, 10) <= today &&
+    today <= new Date(2023, 12, 5)
+  ) {
     text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[4]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[1]} respectively. <br><br>`;
-  } else if (new Date(2023, 12, 6) <= today && today <= new Date(2023, 12, 11)) {
+  } else if (
+    new Date(2023, 12, 6) <= today &&
+    today <= new Date(2023, 12, 11)
+  ) {
     text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2023, 12, 12) <= today && today <= new Date(2023, 12, 22)) {
+  } else if (
+    new Date(2023, 12, 12) <= today &&
+    today <= new Date(2023, 12, 22)
+  ) {
     text += `<b>${MDWDListOfCourses[4]}</b> and <b>${MDWDListOfCourses[5]}</b> are currently being instructed by ${MDWDListOfTeachers[1]} and ${MDWDListOfTeachers[0]} respectively. <br><br>`;
   } else if (new Date(2024, 1, 8) <= today && today <= new Date(2024, 2, 11)) {
     text += `<b>${MDWDListOfCourses[5]}</b> and <b>${MDWDListOfCourses[6]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
@@ -1048,13 +1750,13 @@ function MDWDIntakeSeptember2023() {
     text += `<b>${MDWDListOfCourses[9]}</b> and <b>${MDWDListOfCourses[10]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
   } else if (new Date(2024, 4, 25) <= today && today <= new Date(2024, 4, 26)) {
     text += `<b>${MDWDListOfCourses[10]}</b> and <b>${MDWDListOfCourses[11]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  } else if (new Date(2024, 4, 27) <= today && today <= new Date(2024, 5, 21) ) {
+  } else if (new Date(2024, 4, 27) <= today && today <= new Date(2024, 5, 21)) {
     text += `<b>${MDWDListOfCourses[11]}</b> and <b>${MDWDListOfCourses[13]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
   } else if (new Date(2024, 5, 22) <= today && today <= new Date(2024, 6, 14)) {
     text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[2]} respectively. <br><br>`;
   } else if (new Date(2024, 6, 15) <= today && today <= new Date(2024, 7, 5)) {
     text += `<b>${MDWDListOfCourses[14]}</b> and <b>${MDWDListOfCourses[15]}</b> are currently being instructed by ${MDWDListOfTeachers[2]} and ${MDWDListOfTeachers[0]} respectively. <br><br>`;
-  }  else if (new Date(2024, 7, 6) <= today && today <= new Date(2024, 7, 9)) {
+  } else if (new Date(2024, 7, 6) <= today && today <= new Date(2024, 7, 9)) {
     text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[14]}</b> are currently being instructed by ${MDWDListOfTeachers[0]} and ${MDWDListOfTeachers[2]} respectively. <br><br>`;
   } else if (new Date(2024, 7, 10) <= today && today <= new Date(2024, 7, 12)) {
     text += `<b>${MDWDListOfCourses[13]}</b> and <b>${MDWDListOfCourses[15]}</b> are currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
@@ -1064,7 +1766,7 @@ function MDWDIntakeSeptember2023() {
     text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
   } else if (new Date(2024, 8, 16) <= today && today <= new Date(2024, 8, 30)) {
     text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by ${MDWDListOfTeachers[0]}. <br><br>`;
-  }else {
+  } else {
     text += "<b>This Intake has finished.</b> <br><br>";
   }
 
@@ -1073,11 +1775,11 @@ function MDWDIntakeSeptember2023() {
   for (let i = 0; i < studentsMDWDIntakeSeptember2023.length; i++) {
     contentMDWDIntakeSeptember2023 +=
       "<b>Student Name: </b>" + studentsMDWDIntakeSeptember2023[i].Name + " ";
-      contentMDWDIntakeSeptember2023 +=
+    contentMDWDIntakeSeptember2023 +=
       studentsMDWDIntakeSeptember2023[i].lastname + "<br>";
-      contentMDWDIntakeSeptember2023 +=
+    contentMDWDIntakeSeptember2023 +=
       "<b>Student ID: </b>" + studentsMDWDIntakeSeptember2023[i].id + "<br>";
-      contentMDWDIntakeSeptember2023 +=
+    contentMDWDIntakeSeptember2023 +=
       "<b>Student Email: </b>" +
       studentsMDWDIntakeSeptember2023[i].email +
       "<br>" +
@@ -1096,176 +1798,222 @@ function MDWDIntakeSeptember2023() {
 document.getElementById("contentMDWDIntakeSeptember2023").innerHTML =
   MDWDIntakeSeptember2023();
 
+//BUSINESS DIPLOMA
 
+let BUSIListOfTeachers = ["Kamal Gill"];
 
-  //BUSINESS DIPLOMA
+const BUSIListOfIntakes = ["September 2023"];
 
-  let BUSIListOfTeachers = [
-    "Kamal Gill",
-    'Skandar Soler',
-    'Nazanin',
-    'Daryl'
-  ];
+const BUSIListOfCourses = [
+  "BUSI 1000 | Introduction to Financial Accounting",
+  "BUSI 1001 | Business Mathematics",
+  "BUSI 2000 | Microeconomic",
+  "BUSI 2001 | Business Law",
+  "BUSI 2002 | Business Statistics",
+  "BUSI 2003 | Macroeconomics",
+  "BUSI 2004 | Introductory Marketing",
+  "BUSI 2005 | Introduction to Managerial Accounting",
+  "BUSI 2006 | Business and Technical Communication",
+  "BUSI 2007 | Organizational Behaviour",
+  "BUSI 2008 | Introduction to Managerial Finance",
+  "BUSI 2009 | Introduction to Economics for Managers",
+  "BUSI 2010 | Entrepreneurship",
+  "BUSI 3000 | Operations Management",
+  "BUSI 3001 | Decision Analysis",
+  "BUSI 3002 | Project Management",
+  "BUSI 3003 | Management of Technology",
+];
 
-  let BUSIListOfIntakes = [
-    "September 2023",
-  ];
-
-  let BUSIListOfCourses = [
-    "BUSI 1000 | Introduction to Financial Accounting",
-    "BUSI 1001 | Business Mathematics",
-    "BUSI 2000 | Microeconomic",
-    "BUSI 2001 | Business Law",
-    "BUSI 2002 | Business Statistics",
-    "BUSI 2003 | Macroeconomics",
-    "BUSI 2004 | Introductory Marketing",
-    "BUSI 2005 | Introduction to Managerial Accounting",
-    "BUSI 2006 | Business and Technical Communication",
-    "BUSI 2007 | Organizational Behaviour",
-    "BUSI 2008 | Introduction to Managerial Finance",
-    "BUSI 2009 | Introduction to Economics for Managers",
-    "BUSI 2010 | Entrepreneurship",
-    "BUSI 3000 | Operations Management",
-    "BUSI 3001 | Decision Analysis",
-    "BUSI 3002 | Project Management",
-    "BUSI 3003 | Management of Technology",
-  ];
-
-
-  
-
+// Status general of intakes
 
 let BUSItoday = new Date();
-let BUSIactiveIntakes='';
+let BUSIactiveIntakes = "";
 
-if(new Date(2023, 8, 3) <= BUSItoday && BUSItoday <= new Date(2024, 7, 31)){
-  BUSIactiveIntakes= `${BUSIListOfIntakes[0]}` ; 
-}else{
-  BUSIactiveIntakes='No active Intake yet'
-};
-
-
-document.getElementById("BUSIintakeOngoing").innerHTML=`Intakes ongoing: ${BUSIactiveIntakes} `;
-
-
-function BUSIIntakeSeptember2023(){
-
-//Status Intake 
-
-document.getElementById("statusBUSIIntakeSeptember2023").innerHTML= `<h3>Intake Status: </h3>` + BUSIactiveIntakes;
-
-
-//Table Students
-
-
-// Create table element
-var table = document.createElement('table');
-
-// Create table header
-var thead = document.createElement('thead');
-var headerRow = document.createElement('tr');
-var headerCell1 = document.createElement('th');
-headerCell1.textContent = 'Name';
-var headerCell2 = document.createElement('th');
-headerCell2.textContent = 'Last Name';
-var headerCell3 = document.createElement('th');
-headerCell3.textContent = 'ID';
-var headerCell4 = document.createElement('th');
-headerCell4.textContent = 'Email';
-headerRow.appendChild(headerCell1);
-headerRow.appendChild(headerCell2);
-headerRow.appendChild(headerCell3);
-headerRow.appendChild(headerCell4);
-thead.appendChild(headerRow);
-table.appendChild(thead);
-
-// Create table body
-var tbody = document.createElement('tbody');
-
-
-// Create table rows and cells
-for (var i = 0; i < studentsMDWDIntakeJanuary2022.length; i++) {
-  var row = document.createElement('tr');
-  var cell1 = document.createElement('td');
-  var cell2 = document.createElement('td');
-  var cell3 = document.createElement('td');
-  var cell4 = document.createElement('td');
-
-  cell1.textContent = studentsMDWDIntakeJanuary2022[i].Name;
-  cell2.textContent = studentsMDWDIntakeJanuary2022[i].lastname;
-  cell3.textContent = studentsMDWDIntakeJanuary2022[i].id;
-  cell4.textContent = studentsMDWDIntakeJanuary2022[i].email;
-
-  row.appendChild(cell1);
-  row.appendChild(cell2);
-  row.appendChild(cell3);
-  row.appendChild(cell4);
-  tbody.appendChild(row);
-}
-table.appendChild(tbody);
-
-// Create the title
-var titleStudentsTable = document.createElement('h3');
-titleStudentsTable.textContent = 'List of Students';
-
-// Select the target div
-var targetDiv = document.getElementById('studentsBUSIIntakeSeptember2023');
-
-// Clear the target div content
-targetDiv.innerHTML = '';
-
-// Append the title and table to the target div
-targetDiv.appendChild(titleStudentsTable);
-targetDiv.appendChild(table);
-
+if (new Date(2023, 8, 3) <= BUSItoday && BUSItoday <= new Date(2024, 7, 31)) {
+  BUSIactiveIntakes = `${BUSIListOfIntakes[0]}`;
+} else {
+  BUSIactiveIntakes = "No active Intake yet";
 }
 
+document.getElementById(
+  "BUSIintakeOngoing"
+).innerHTML = `Intakes ongoing: ${BUSIactiveIntakes} `;
 
-//Table Courses
+//Function BUSI SEPTEMBER 2023
 
-// Create table element
-var table = document.createElement('table');
+function BUSIIntakeSeptember2023() {
+  //Status Intake
 
-// Create table header
-var thead = document.createElement('thead');
-var headerRow = document.createElement('tr');
-var headerCell1 = document.createElement('th');
-headerCell1.textContent = 'Courses';
-var headerCell2 = document.createElement('th');
-headerCell2.textContent = 'Instructor';
-headerRow.appendChild(headerCell1);
-headerRow.appendChild(headerCell2);
-thead.appendChild(headerRow);
-table.appendChild(thead);
+  let statusTitleBUSIIntakeSeptember2023 = document.querySelector(
+    ".statusTitleBUSIIntakeSeptember2023"
+  );
+  let statusContentBUSIIntakeSeptember2023 = document.querySelector(
+    ".statusContentBUSIIntakeSeptember2023"
+  );
 
-// Create table body
-var tbody = document.createElement('tbody');
+  // Check if h4 element already exists
+  let h4 = statusTitleBUSIIntakeSeptember2023.querySelector("h4");
+  if (!h4) {
+    // Create the h4 element
+    h4 = document.createElement("h4");
+    h4.textContent = "Intake Status";
+    statusTitleBUSIIntakeSeptember2023.appendChild(h4);
+  }
 
-// Create table rows and cells
-for (var i = 0; i < BUSIListOfCourses.length; i++) {
-  var row = document.createElement('tr');
-  var cell1 = document.createElement('td');
-  var cell2 = document.createElement('td');
+  text = ``;
 
-  cell1.textContent = BUSIListOfCourses[i];
-  cell2.textContent = BUSIListOfTeachers[i % BUSIListOfTeachers.length];
+  if (new Date(2022, 8, 12) <= today && today <= new Date(2022, 9, 20)) {
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[1]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2022, 9, 21) <= today && today <= new Date(2022, 10, 4)) {
+    text += `<b>${MDWDListOfCourses[0]}</b> and <b>${MDWDListOfCourses[2]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2022, 10, 5) <= today && today <= new Date(2023, 0, 3)) {
+    text += `<b>${MDWDListOfCourses[2]}</b> and <b>${MDWDListOfCourses[3]}</b> are currently being instructed by <b>${MDWDListOfTeachers[0]}</b> and <b>${MDWDListOfTeachers[1]}</b> respectively.`;
+  } else if (new Date(2022, 0, 4) <= today && today <= new Date(2023, 0, 15)) {
+    text += `<b>${MDWDListOfCourses[4]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
+  } else if (new Date(2023, 0, 16) <= today && today <= new Date(2023, 1, 7)) {
+    text += `<b>${MDWDListOfCourses[5]}</b></b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 1, 8) <= today && today <= new Date(2023, 1, 27)) {
+    text += `<b>${MDWDListOfCourses[6]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 1, 27) <= today && today <= new Date(2023, 2, 10)) {
+    text += `<b>${MDWDListOfCourses[7]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
+  } else if (new Date(2023, 3, 10) <= today && today <= new Date(2023, 3, 28)) {
+    text += `<b>${MDWDListOfCourses[8]}</b> is currently being instructed by <b>${MDWDListOfTeachers[1]}</b>.`;
+  } else if (new Date(2023, 2, 29) <= today && today <= new Date(2023, 3, 25)) {
+    text += `<b>${MDWDListOfCourses[9]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 3, 26) <= today && today <= new Date(2023, 4, 5)) {
+    text += `<b>${MDWDListOfCourses[10]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 4, 6) <= today && today <= new Date(2023, 4, 17)) {
+    text += `<b>${MDWDListOfCourses[11]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 4, 18) <= today && today <= new Date(2023, 4, 31)) {
+    text += `<b>${MDWDListOfCourses[12]}</b> is currently being instructed by <b>${MDWDListOfTeachers[3]}</b>.`;
+  } else if (new Date(2023, 5, 1) <= today && today <= new Date(2023, 5, 23)) {
+    text += `<b>${MDWDListOfCourses[13]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 5, 24) <= today && today <= new Date(2023, 6, 18)) {
+    text += `<b>${MDWDListOfCourses[14]}</b> is currently being instructed by <b>${MDWDListOfTeachers[14]}</b>.`;
+  } else if (new Date(2023, 6, 19) <= today && today <= new Date(2023, 6, 28)) {
+    text += `<b>${MDWDListOfCourses[15]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 6, 29) <= today && today <= new Date(2023, 7, 23)) {
+    text += `<b>${MDWDListOfCourses[16]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else if (new Date(2023, 7, 22) <= today && today <= new Date(2023, 7, 31)) {
+    text += `<b>${MDWDListOfCourses[17]}</b> is currently being instructed by <b>${MDWDListOfTeachers[0]}</b>.`;
+  } else {
+    text += "<b>This Intake has concluded.</b>";
+  }
 
-  row.appendChild(cell1);
-  row.appendChild(cell2);
-  tbody.appendChild(row);
+  // Assign the text to new div
+  statusContentBUSIIntakeSeptember2023.innerHTML = text;
+  //Add styles to  new div
+  statusContentBUSIIntakeSeptember2023.style.border = "2px solid";
+  statusContentBUSIIntakeSeptember2023.style.marginTop = "1em";
+  statusContentBUSIIntakeSeptember2023.style.padding = "10px";
+
+  //Table Students
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Name";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Last Name";
+  var headerCell3 = document.createElement("th");
+  headerCell3.textContent = "ID";
+  var headerCell4 = document.createElement("th");
+  headerCell4.textContent = "Email";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  headerRow.appendChild(headerCell3);
+  headerRow.appendChild(headerCell4);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < studentsMDWDIntakeJanuary2022.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+    var cell3 = document.createElement("td");
+    var cell4 = document.createElement("td");
+
+    cell1.textContent = studentsMDWDIntakeJanuary2022[i].Name;
+    cell2.textContent = studentsMDWDIntakeJanuary2022[i].lastname;
+    cell3.textContent = studentsMDWDIntakeJanuary2022[i].id;
+    cell4.textContent = studentsMDWDIntakeJanuary2022[i].email;
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    tbody.appendChild(row);
+  }
+  table.appendChild(tbody);
+
+  // Create the title
+  var titleStudentsTable = document.createElement("h4");
+  titleStudentsTable.textContent = "List of Students";
+
+  // Select the target div
+  var targetDiv = document.getElementById("studentsBUSIIntakeSeptember2023");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleStudentsTable);
+  targetDiv.appendChild(table);
+
+  //Table Courses
+
+  // Create table element
+  var table = document.createElement("table");
+
+  // Create table header
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var headerCell1 = document.createElement("th");
+  headerCell1.textContent = "Courses";
+  var headerCell2 = document.createElement("th");
+  headerCell2.textContent = "Instructor";
+  headerRow.appendChild(headerCell1);
+  headerRow.appendChild(headerCell2);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create table body
+  var tbody = document.createElement("tbody");
+
+  // Create table rows and cells
+  for (var i = 0; i < BUSIListOfCourses.length; i++) {
+    var row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    var cell2 = document.createElement("td");
+
+    cell1.textContent = BUSIListOfCourses[i];
+    cell2.textContent = BUSIListOfTeachers[i % BUSIListOfTeachers.length];
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    tbody.appendChild(row);
+  }
+  table.appendChild(tbody);
+
+  // Create the title
+  var titleCourseTable = document.createElement("h4");
+  titleCourseTable.textContent = "List of Courses";
+
+  // Select the target div
+  var targetDiv = document.getElementById("coursesBUSIIntakeSeptember2023");
+
+  // Clear the target div content
+  targetDiv.innerHTML = "";
+
+  // Append the title and table to the target div
+  targetDiv.appendChild(titleCourseTable);
+  targetDiv.appendChild(table);
 }
-table.appendChild(tbody);
-
-// Create the title
-var titleCourseTable = document.createElement('h3');
-titleCourseTable.textContent = 'List of Courses';
-
-// Select the target div
-var targetDiv = document.getElementById('coursesBUSIIntakeSeptember2023');
-
-// Clear the target div content
-targetDiv.innerHTML = '';
-
-// Append the title and table to the target div
-targetDiv.appendChild(titleCourseTable);
-targetDiv.appendChild(table);
